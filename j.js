@@ -57,3 +57,5 @@ while (j < 9) {
   pattern = pattern + "*";
   console.log(pattern);
 }
+
+for (j<19) { j=j+1; pattern =pattern+"*"; console.log (pattern)}
