@@ -104,10 +104,16 @@ for (let i = 0; i < books.length; i++) {
   }
 }
 
-function filterBooksByYear(year) 
-{let filteredBooks=[]; for (let i =0; i < books.length, i++) {const thatBooksYear = books[i].year;
-  if (thatBooksYear >=year) {filteredBooks.push(books[i]);}
- }return filteredBooks}
+function filterBooksByYear(year) {
+  let filteredBooks = [];
+  for (let i = 0; i < books.length; i++) {
+    const thatBooksYear = books[i].year;
+    if (thatBooksYear >= year) {
+      filteredBooks.push(books[i]);
+    }
+  }
+  return filteredBooks;
+}
 
-const filteredBooks = filterBooksByYear(1960)
-console.log (filteredBooks
+const filteredBooks = filterBooksByYear(1960);
+console.log(filteredBooks);
