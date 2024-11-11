@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head> </head>
+  <head>
+    <style>
+      .tasks {
+        border: 1px solid gray;
+        padding: 10px;
+        border-radius: 4px;
+        margin-bottom: 3px;
+      }
+    </style>
+  </head>
   <body>
-    <div class="tasks"></div>
+    <button onclick="createNewTask()">New Task</button>
+    <div id="tasks"></div>
     <script>
       const tasks = [
         { name: "Shalaa ugaah", status: "todo" },
-        { name: "huvtsas ugaah", status: "todo" },
-        { name: "duugee harah", status: "todo" },
+        { name: "Huvtsas ugaah", status: "todo" },
+        { name: "Duugee harah", status: "todo" },
       ];
 
       function render() {
         const output = document.getElementById("tasks");
         output.innerHTML = "";
         for (let i = 0; i < tasks.length; i++) {
-          output.innerHTML += '<div class ="task">' + tasks[i].name + "</div";
+          output.innerHTML += '<div class="task">' + tasks[i].name + "</div";
         }
       }
 

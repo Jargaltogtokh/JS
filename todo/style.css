@@ -1,0 +1,11 @@
+.todo-item {
+  display: flex;
+}
+.todo-item > button {
+}
+
+.status-todo {
+  background-color: chartreuse;
+  border-radius: 6px;
+  padding: 4px;
+}
