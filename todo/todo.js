@@ -3,7 +3,11 @@ let todos = [];
 
 function render() {
   const todoList = document.querySelector("#tasks");
-  todoList.innerHTML = "";
+  const tasklist = todoList.querySelector("#tasks");
+
+  console.log(todoList);
+
+  taskList.innerHTML = "";
 
   for (let i = 0; i < todos.length; i++) {
     const item = todos[i];
@@ -35,9 +39,11 @@ function render() {
   }
 }
 function addToDo() {
-  const input = prompt("Enter todo name");
-  todos.push({ name: input, status: "TODO" });
-  render();
+  const modal = document.querySelector("#modal");
+  modal.Style.display = "block";
+  // const input = prompt("Enter todo name");
+  // todos.push({ name: input, status: "TODO" });
+  // render();
 }
 
 function editStatus(index, status) {
@@ -75,4 +81,14 @@ function countDone() {
     }
   }
   return count;
+}
+
+function saveToDo() {
+  const inputValue = document.getElementById("task-name").value;
+  const statusValue = document.getElementById("task-status").value;
+  todos.push = { name: inputValue, status: "todo" };
+  render();
+
+  const modal = document.querySelector("#modal");
+  modal.Style.display = "block";
 }

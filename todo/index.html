@@ -4,13 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="//style.css" />
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>To do list</h1>
-    <button onclick="addToDo()">Add to do</button>
+    <!-- <h1>To do list</h1>
+    <button onclick="addToDo()">Add to do</button> -->
 
     <div id="tasks" class="todos"></div>
     <script src="./todo.js"></script>
+
+    <div class="container">
+      <div id="todos" class="todos">
+        <h2 style="color: white">To do</h2>
+        <div class="tasks"></div>
+      </div>
+      <div id="inprogress" class="todos">
+        <h2 style="color: white">In progress</h2>
+        <div class="tasks"></div>
+      </div>
+      <div id="done" class="todos">
+        <h2 style="color: white">Done</h2>
+        <div class="tasks"></div>
+      </div>
+      <div id="blocked" class="todos">
+        <h2 style="color: white">Blocked</h2>
+        <div class="tasks"></div>
+      </div>
+    </div>
+
+    <div id="modal">
+      <div class="modal-content">
+        <h2>Enter task</h2>
+        <input type="text" id="task-name" />
+        <select id="task-status">
+          <option value="todo">Todo</option>
+          <option value="in-progress">In progress</option>
+          <option value="done">Done</option>
+          <option value="blocked">Blocked</option>
+        </select>
+        <button onclick="SaveToDo">Add task</button>
+      </div>
+    </div>
   </body>
 </html>
