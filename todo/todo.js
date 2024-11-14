@@ -4,6 +4,16 @@ let blocked = [];
 let done = [];
 let inprogress = [];
 
+function editTask(index) {
+  const newName = prompt("Enter new name");
+  editName(index, newName);
+  render();
+}
+
+function deleteTask(index) {
+  deleteOne(index);
+  render();
+}
 function render() {
   document.getElementById("todo-tasks").innerHTML = "";
   document.getElementById("in-progress-tasks").innerHTML = "";
@@ -21,31 +31,39 @@ function render() {
     const element = document.createElement("div");
     element.classList.add("todo-item");
 
+    element.innerHTML = `
+      <p style="color: #fff;">${item.name}</p> 
+      <div style="display: flex"> 
+        <img src="edit.png" onclick="editTask(${i});"/>
+        <img src="bin.png" onclick="deleteTask(${i});"/>
+      </div>`;
+
     //Create task name
-    const titleEl = document.createElement("p");
-    titleEl.style.color = "#fff";
-    titleEl.innerText = item.name;
+    // const titleEl = document.createElement("p");
+    // titleEl.style.color = "#fff";
+    // titleEl.innerText = item.name;
 
     //Create edit button
-    const btnEl = document.createElement("img");
-    btnEl.src = "edit.png";
-    btnEl.onclick = function () {
-      const newName = prompt("Enter new name");
-      editName(i, newName);
-      render();
-    };
+
+    // const btnEl = document.createElement("img");
+    // btnEl.src = "edit.png";
+    // btnEl.onclick = function () {
+    //   const newName = prompt("Enter new name");
+    //   editName(i, newName);
+    //   render();
+    // };
 
     //Delete
-    const deletBtnEl = document.createElement("img");
-    deletBtnEl.src = "bin.png";
-    deletBtnEl.onclick = function () {
-      deleteOne(i);
-      render();
-    };
+    // const deletBtnEl = document.createElement("img");
+    // deletBtnEl.src = "bin.png";
+    // deletBtnEl.onclick = function () {
+    //   deleteOne(i);
+    //   render();
+    // };
 
-    element.appendChild(titleEl);
-    element.appendChild(btnEl);
-    element.appendChild(deletBtnEl);
+    // element.appendChild(titleEl);
+    // element.appendChild(btnEl);
+    // element.appendChild(deletBtnEl);
     tasklist.appendChild(element);
   }
 }

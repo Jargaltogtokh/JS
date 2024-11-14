@@ -50,6 +50,7 @@ body {
   border-radius: 12px;
   border: 0.5px solid grey;
 }
+
 .modal-content > input {
   padding: 6px;
 }
@@ -59,7 +60,7 @@ select {
   width: 153px;
   margin: 10px;
   background-color: #1e1e1e;
-  color: white;
+  color: grey;
 }
 
 .container {
@@ -103,13 +104,43 @@ select {
   margin-top: 10px;
 }
 img {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0;
+
+  bottom: 0;
   height: 20px;
   width: 20px;
   margin-left: 20px;
-  display: flex;
-  align-items: flex-end;
+  line-height: 40px;
+  text-align: right;
+  font-size: 22px;
 }
 input {
   background-color: #1e1e1e;
   border: 1px solid grey;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.5);
+  line-height: 20px;
+  background-color: #1e1e1e;
+  border-radius: 5px;
+}
+.todo-item ::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+}
+#todo-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.submit-btn:hover {
+  border: 3px solid purple;
 }
