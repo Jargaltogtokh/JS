@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .board {
+        margin: 30px auto;
+        height: 600px;
+        width: 600px;
+        background-color: burlywood;
+        position: relative;
+      }
+      .snake {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 200px;
+        left: 150px;
+        background-color: blueviolet;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div style="text-align: center;">
+        <button onclick="startGame();">Start </button>
+        <button onclick="pauseGame();"> Pause</button>
+        <button onclick="restartGame();"> Restart</button>       
+    </div>
+
+    <div style="text-align: center;">
+        <button onclick="changeDirection('up');"> Up </button>
+        <button onclick="changeDirection('down');"> Down</button>
+        <button onclick="changeDirection('left');"> Left</button>       
+        <button onclick="changeDirection('right');"> Right</button>
+    </div>
+
+    <div class="board" id="board">
+        <div class="snake"> 
+    </div>
+    
+    <script>
+        let headTop = 10;
+        let headLeft = 12;
+        let direction ="up";
+        const tails = [
+            {x:2, y:5},
+            {x:2, y:5},
+            {x:2, y:5}
+        ];
+        let intervalId = null;
+        
+        const config = {
+            size: 20,
+            width: 30,
+            height: 20,
+        };
+
+        const boardEl = document.getElementById("board");
+        boardEl.style.width = config.width * config.size + "px";
+        boardEl.style.height = config.height * config.size + "px";
+        
+        function goUp (){
+            headTop = headTop - 1;
+            if ( headTop < 0) {headTop = config.height - 1;} render ();
+        } 
+
+        function goDown (){
+            headTop = headTop + 1;
+            if (headTop === config.height) {headTop =0;} render (); 
+        }
+
+        function goRight (){
+            headleft = headLeft + 1;
+            render (); 
+        }
+
+
+        function goLeft (){
+            headleft = headLeft - 1;
+            render (); 
+        }
+        function startGame (){
+            if (!intervalId){ 
+            intervalId = setInterval(gameLoop, 300)
+            }
+        }
+        function pauseGame () {
+            clearInterval(intervalId);
+            intervalId = null;
+        }
+        function reset () {
+            healTop =10; 
+            headLeft =12; 
+            direction = "up";
+        }
+        function restartGame () {
+            reset ();
+            startGame;
+        }
+
+        function changeDirection(newDirection) {
+            if (direction === "up" || direction === "down"){
+                if (newDirection === "right" || new newDirection === "left" ) {
+                    direction = newDirection;
+                }
+            } else if (direction === "right" || direction === "left") {
+                if (newDirection ==="up" || newDirection === "down") {
+                    direction=newDirection; 
+                }
+            }
+        }
+
+        function goRight () {headLeft = headLeft + 1; render ();}
+
+        // setInterval (gameLoop, 300);
+
+        function gameLoop () {
+            tails.push ({ x: headLeft, y: headTop})
+            switch (direction) {case "up": goUp (); 
+            break;
+            case "right": goRight (); break; 
+            case "down": goDown (); break; 
+            case "up": goUp (); break; 
+            case "left": goLeft (); break; 
+        }}
+
+        function render () {
+            let tails = "";
+
+            for (let i =0; i < tails.length; i++){
+            tailsHtml = `<div class = "snake" style = "width: ${1 * config.size}px; height: ${1 * config.size}px; top: ${y * config.size}px; left: ${x * config.size}px"}> </div>`;
+            }
+            const snakeHtml = `$(tailsHtml)`;
+            boardEl.innerHTML = snakeHtml;
+        }
+
+        render ();
+
+    </script>
+  </body>
+</html>

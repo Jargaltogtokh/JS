@@ -144,3 +144,9 @@ input {
 .submit-btn:hover {
   border: 3px solid purple;
 }
+
+.btn-container {
+  padding: 10px;
+  display: flex;
+  justify-content: space-arounds;
+}
