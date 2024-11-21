@@ -52,13 +52,12 @@
       const title = product.name + getStarRating(product.rating);
       const discountedPrice = calculateDiscount(product.price);
       //Бодолт хийгээд үргэлжлүүлээрэй
+      li.innerHtml = `
+        <h3> ${title} <\h3>
+        <span> Анхны үнэ: $(product.price)₮ => <b> Хямдралтай: ${discountedPrice}₮ </b> </span>
+        `;
+      container.appendChild(li);
     }
-
-    li.innerHtml = `
-    <h3> ${title} <\h3>
-    <span> Анхны үнэ: $(product.price)₮ => <b> Хямдралтай: ${discountedPrice}₮ </b> </span>
-    `;
-    container.appendChild(li);
 
     // Хямдралын үнэ тооцох функц
     function calculateDiscount(price) {
