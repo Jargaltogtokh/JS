@@ -41,37 +41,40 @@
       { name: "Саван", price: 2000, category: "Ариун цэвэр", rating: 3 },
     ];
 
-    document.body.appendChild(productList);
-
     // Жагсаалтыг үүсгэх үндсэн функц
     function renderProductList() {
-      const productList = document.createElement("ul");
-      //   for (let i = 0; i < products.length; i++) {
-      //     const product = products[i];
-      //     const listItem = document.createElement("li");
-      //   productList.textContent = product.name;
-      document.body.appendChild(productList);
+      products.map(renderProduct);
     }
-    const newArray = product.map(productList);
 
-    console.log(newArray);
-    // 1 бүтээгдэхүүн render
+    // // 1 бүтээгдэхүүн render
     function renderProduct(product) {
       const li = document.createElement("li");
+      const title = product.name + getStarRating(product.rating);
       const discountedPrice = calculateDiscount(product.price);
       //Бодолт хийгээд үргэлжлүүлээрэй
     }
 
+    li.innerHtml = `
+    <h3> ${title} <\h3>
+    <span> Анхны үнэ: $(product.price)₮ => <b> Хямдралтай: ${discountedPrice}₮ </b> </span>
+    `;
+    container.appendChild(li);
+
     // Хямдралын үнэ тооцох функц
     function calculateDiscount(price) {
-      calculateDiscount = product.price * 0.85;
+      return (price * 0.85).toFixed(2);
       // 15%-ийн хямдрал. Бодолт хийгээд үргэлжлүүлээрэй
     }
 
     // Үнэлгээнд од нэмэх функц
     function getStarRating(rating) {
-      //  Бодолт хийгээд үргэлжлүүлээрэй
+      if (rating > 4) {
+        return "⭐️";
+      } else {
+        return "";
+      }
     }
+    //  Бодолт хийгээд үргэлжлүүлээрэй
 
     // Жагсаалтыг render
 
