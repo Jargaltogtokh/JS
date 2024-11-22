@@ -46,7 +46,7 @@ function render() {
     // Create edit button
 
     const btnEl = document.createElement("img");
-    btnEl.src = "edit.png";
+    btnEl.src = "/todo/edit.png";
     btnEl.onclick = function () {
       const newName = prompt("Enter new name");
       editName(i, newName);
@@ -55,7 +55,7 @@ function render() {
 
     // Delete
     const deletBtnEl = document.createElement("img");
-    deletBtnEl.src = "bin.png";
+    deletBtnEl.src = "/todo/bin.png";
     deletBtnEl.onclick = function () {
       deleteOne(i);
       render();
