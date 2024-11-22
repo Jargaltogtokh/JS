@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mini shop</title>
     <style>
       * {
@@ -40,9 +40,9 @@
       { name: "Ногоо", price: 1500, category: "Хүнс", rating: 4.7 },
       { name: "Саван", price: 2000, category: "Ариун цэвэр", rating: 3 },
     ];
-
+    const container = document.getElementById("productList");
     // Жагсаалтыг үүсгэх үндсэн функц
-    function renderProductList() {
+    function createProductList() {
       products.map(renderProduct);
     }
 
@@ -52,9 +52,9 @@
       const title = product.name + getStarRating(product.rating);
       const discountedPrice = calculateDiscount(product.price);
       //Бодолт хийгээд үргэлжлүүлээрэй
-      li.innerHtml = `
-        <h3> ${title} <\h3>
-        <span> Анхны үнэ: $(product.price)₮ => <b> Хямдралтай: ${discountedPrice}₮ </b> </span>
+      li.innerHTML = `
+        <h3> ${title} </h3>
+        <span> Анхны үнэ: ${product.price}₮ => <b> Хямдралтай: ${discountedPrice}₮ </b> </span>
         `;
       container.appendChild(li);
     }
@@ -77,6 +77,6 @@
 
     // Жагсаалтыг render
 
-    renderProductList();
+    createProductList();
   </script>
 </html>
